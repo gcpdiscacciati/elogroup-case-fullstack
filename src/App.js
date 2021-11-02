@@ -1,24 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import Routes from './routes';
 
 function App() {
+  //Inicializa as listas de Leads e de Usuários no localStorage do navegador.
+  var listaLeads = [];
+  var listaUsers = [];
+  if(!localStorage.getItem('listaLeads')){
+      localStorage.setItem('listaLeads', JSON.stringify(listaLeads));
+  }
+  if(!localStorage.getItem('listaUsers')){
+      localStorage.setItem('listaUsers', JSON.stringify(listaUsers));
+  }
+  // Retorna as rotas criadas no arquivo routes.js
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <Routes/>
   );
 }
 
